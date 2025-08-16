@@ -1,0 +1,1190 @@
+{
+	"info": {
+		"_postman_id": "7ffad92a-ab5f-4725-97ed-04f7f7e5a971",
+		"name": "ContainRs API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4222748"
+	},
+	"item": [
+		{
+			"name": "Identidade e Acesso",
+			"item": [
+				{
+					"name": "Registro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"suporte@example.org\",\r\n    \"password\": \"Alura@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/auth/register",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"alan@example.org\",\r\n    \"password\": \"Alura@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gestão de Clientes",
+			"item": [
+				{
+					"name": "Detalhes Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/clientes/:id",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"clientes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "fab6b485-1a0a-4dbd-e798-08dd501a8068"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualização de Dados",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"celular\": \"(21) 97777-5555\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/clientes/:id",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"clientes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "fab6b485-1a0a-4dbd-e798-08dd501a8068"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Desativar Cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/clientes/:id",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"clientes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "f75485fd-8866-49a8-511b-08dd4f8f27bf"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Incluir Endereço",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Teste de Exclusão\",\r\n    \"cep\": \"11500-444\",\r\n    \"rua\": \"rua sei lá\",\r\n    \"bairro\": \"Bairro\",\r\n    \"municipio\": \"Cidade\",\r\n    \"estado\": \"MA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/clientes/:id/enderecos",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"clientes",
+								":id",
+								"enderecos"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "fab6b485-1a0a-4dbd-e798-08dd501a8068"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Endereço",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"estado\": \"PI\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/clientes/:id/enderecos/:idEndereco",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"clientes",
+								":id",
+								"enderecos",
+								":idEndereco"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1b54c498-bbbd-4e18-5e34-08dd4f95d4ba"
+								},
+								{
+									"key": "idEndereco",
+									"value": "814a4545-1bb0-4cfa-6001-08dd4f966ad1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Endereço",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/clientes/:id/enderecos/:idEndereco",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"clientes",
+								":id",
+								"enderecos",
+								":idEndereco"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "fab6b485-1a0a-4dbd-e798-08dd501a8068"
+								},
+								{
+									"key": "idEndereco",
+									"value": "a1bc488c-c1a9-4fb7-80a6-08dd501cc797"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registro de Cliente (Anônimo)",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Alan Cruz Silva\",\r\n    \"email\": \"alan@example.org\",\r\n    \"cpf\": \"90812309830\",\r\n    \"celular\": \"(21) 97777-4545\",\r\n    \"endereco\": {\r\n        \"nome\": \"Escritório I\",\r\n        \"cep\": \"11500-230\",\r\n        \"rua\": \"Rua dos Inválidos\",\r\n        \"bairro\": \"Centro\",\r\n        \"municipio\": \"São Bento\",\r\n        \"estado\": \"MG\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/clientes/registration",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"clientes",
+								"registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtém Status do Registro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/clientes/registration/status?email=alan@example.org",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"clientes",
+								"registration",
+								"status"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "alan@example.org"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aprovação do Registro",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/clientes/registration/:id/approve",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"clientes",
+								"registration",
+								":id",
+								"approve"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "fab6b485-1a0a-4dbd-e798-08dd501a8068"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rejeição do Registro",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/clientes/registration/:id/reject",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"clientes",
+								"registration",
+								":id",
+								"reject"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "f75485fd-8866-49a8-511b-08dd4f8f27bf"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{ACCESS_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Locação e Contratos",
+			"item": [
+				{
+					"name": "Cliente solicita locação",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"finalidade\": \"evento_aberto\",\r\n  \"quantidadeEstimada\": 3,\r\n  \"periodo\": {\r\n    \"dataInicioOperacao\": \"2025-06-15T00:00:00Z\",\r\n    \"disponibilidadePrevia\": 15,\r\n    \"quantidadeDias\": 7\r\n  },\r\n  \"localizacao\": {\r\n    \"enderecoId\": \"eae5ffa1-8d1d-408a-6ea8-08dd501a8070\"\r\n  },\r\n  \"descricao\": \"Solicitação de 4 containeres para um festival de música ao ar livre. O evento terá duração de uma semana. O espaço precisa ser seguro e acessível. A estrutura deve suportar condições climáticas variadas.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/rental-requests",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"rental-requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente consulta solicitações ativas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/rental-requests",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"rental-requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente obtém detalhes da solicitação",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/rental-requests/:id",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"rental-requests",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "0a47be1d-73af-43a1-79d0-08dd5763e3cc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente cancela solicitação",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/rental-requests/:id",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"rental-requests",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vendedor envia proposta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "propostaId",
+									"value": "b3f1a8d2-4c79-44e1-98b0-6f8d3f2e937b",
+									"description": "Identificador da proposta",
+									"type": "text"
+								},
+								{
+									"key": "documento",
+									"description": "Arquivo com detalhamento da proposta",
+									"type": "file",
+									"src": "/C:/Users/daniel/Downloads/comprovante-residencia-oi.pdf"
+								},
+								{
+									"key": "valor",
+									"value": "53000",
+									"description": "Valor total da locação",
+									"type": "text"
+								},
+								{
+									"key": "validade",
+									"value": "2025-03-01T00:00:00Z",
+									"description": "Validade da proposta",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/rental-requests/:id/proposals",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"rental-requests",
+								":id",
+								"proposals"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente consulta propostas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/rental-requests/:id/proposals",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"rental-requests",
+								":id",
+								"proposals"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente obtém detalhes da proposta (com histórico de comentários)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/rental-requests/:id/proposals/:proposalId",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"rental-requests",
+								":id",
+								"proposals",
+								":proposalId"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								},
+								{
+									"key": "proposalId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente/Vendedor comentam proposta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comentario\": \"Poderia detalhar melhor o interior do container? Obrigado!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/rental-requests/:id/proposals/:proposalId/comment",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"rental-requests",
+								":id",
+								"proposals",
+								":proposalId",
+								"comment"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								},
+								{
+									"key": "proposalId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente aceita proposta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/rental-requests/:id/proposals/:proposalId/accept",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"rental-requests",
+								":id",
+								"proposals",
+								":proposalId",
+								"accept"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								},
+								{
+									"key": "proposalId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente rejeita proposta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/rental-requests/:id/proposals/:proposalId/reject",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"rental-requests",
+								":id",
+								"proposals",
+								":proposalId",
+								"reject"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								},
+								{
+									"key": "proposalId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente visualiza histórico de locações",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/rentals",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"rentals"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{ACCESS_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Contêineres e Automação",
+			"item": [
+				{
+					"name": "GET /containers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/containers",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"containers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /containers/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/containers/{id}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"containers",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /containers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/containers",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"containers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /containers/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/containers/{id}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"containers",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /containers/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/containers/{id}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"containers",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /containers/{id}/power",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/containers/{id}/power",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"containers",
+								"{id}",
+								"power"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /containers/{id}/power",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/containers/{id}/power",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"containers",
+								"{id}",
+								"power"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /containers/{id}/climate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/containers/{id}/climate",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"containers",
+								"{id}",
+								"climate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /containers/{id}/climate",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/containers/{id}/climate",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"containers",
+								"{id}",
+								"climate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /containers/{id}/access",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/containers/{id}/access",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"containers",
+								"{id}",
+								"access"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /containers/{id}/access/unlock",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/containers/{id}/access/unlock",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"containers",
+								"{id}",
+								"access",
+								"unlock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /containers/{id}/access/lock",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/containers/{id}/access/lock",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"containers",
+								"{id}",
+								"access",
+								"lock"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pagamentos e Faturas",
+			"item": [
+				{
+					"name": "GET /payments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/payments",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /payments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/payments",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /invoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/invoices",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /invoices/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/invoices/{id}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"invoices",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /invoices/{id}/pay",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/invoices/{id}/pay",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"invoices",
+								"{id}",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Atendimento e Suporte",
+			"item": [
+				{
+					"name": "GET /support/tickets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/support/tickets",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"support",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /support/tickets",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/support/tickets",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"support",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /support/tickets/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/support/tickets/{id}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"support",
+								"tickets",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /support/tickets/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/support/tickets/{id}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"support",
+								"tickets",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /support/tickets/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/support/tickets/{id}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"support",
+								"tickets",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /support/faqs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/support/faqs",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"support",
+								"faqs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
