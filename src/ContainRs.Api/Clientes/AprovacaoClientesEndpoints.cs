@@ -1,11 +1,12 @@
 ﻿using ContainRs.Api.Contracts;
+using ContainRs.Api.Endpoints;
 using ContainRs.Api.Identity;
 using ContainRs.Api.Responses;
 using ContainRs.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContainRs.Api.Endpoints;
+namespace ContainRs.Api.Clientes;
 
 public static class AprovacaoClientesEndpoints
 {

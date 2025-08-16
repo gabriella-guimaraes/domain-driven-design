@@ -1,4 +1,5 @@
 ﻿using ContainRs.Api.Contracts;
+using ContainRs.Api.Endpoints;
 using ContainRs.Api.Identity;
 using ContainRs.Api.Requests;
 using ContainRs.Api.Responses;
@@ -7,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Transactions;
 
-namespace ContainRs.Api.Endpoints;
+namespace ContainRs.Api.Clientes;
 
 public static class ClientesEndpoints
 {
