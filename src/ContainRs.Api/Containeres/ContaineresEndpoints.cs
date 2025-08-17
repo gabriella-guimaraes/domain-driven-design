@@ -1,7 +1,5 @@
 ﻿using ContainRs.Api.Contracts;
 using ContainRs.Api.Domain;
-using ContainRs.Api.Endpoints;
-using ContainRs.Api.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContainRs.Api.Containeres;

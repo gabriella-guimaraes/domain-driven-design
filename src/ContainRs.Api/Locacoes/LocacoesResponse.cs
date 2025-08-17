@@ -1,6 +1,6 @@
 ﻿using ContainRs.Api.Domain;
 
-namespace ContainRs.Api.Responses;
+namespace ContainRs.Api.Locacoes;
 
 public record SolicitacaoResponse(string Id, string Status, string Finalidade)
 {

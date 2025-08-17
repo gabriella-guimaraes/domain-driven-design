@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ContainRs.Api.Requests;
+namespace ContainRs.Api.Propostas;
 
 public record ComentarioRequest([Required] string Comentario);
 

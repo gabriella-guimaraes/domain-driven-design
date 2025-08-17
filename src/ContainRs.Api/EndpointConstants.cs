@@ -1,4 +1,4 @@
-﻿namespace ContainRs.Api.Endpoints;
+﻿namespace ContainRs.Api;
 
 public static class EndpointConstants
 {
