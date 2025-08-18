@@ -29,7 +29,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 builder.Services.AddScoped<IRepository<Cliente>, ClienteRepository>();
-builder.Services.AddScoped<IRepository<Solicitacao>, SolicitacaoRepository>();
+builder.Services.AddScoped<IRepository<PedidoLocacao>, SolicitacaoRepository>();
 builder.Services.AddScoped<IRepository<Proposta>, PropostaRepository>();
 builder.Services.AddScoped<IRepository<Locacao>, LocacaoRepository>();
 builder.Services.AddScoped<IRepository<Conteiner>, ConteinerRepository>();

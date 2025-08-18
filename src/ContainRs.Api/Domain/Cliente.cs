@@ -4,6 +4,12 @@ public class Cliente
 {
     private Cliente() { } // EF Core
 
+    /// <summary>
+    /// Pessoa física ou jurídica que solicita e contrata a locação de contêineres para uso próprio ou empresarial.
+    /// </summary>
+    /// <param name="nome"></param>
+    /// <param name="email"></param>
+    /// <param name="cPF"></param>
     public Cliente(string nome, Email email, string cPF)
     {
         Nome = nome;

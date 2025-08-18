@@ -34,7 +34,7 @@ public static class PropostasEndpoints
             .MapPost("{id:guid}/proposals", async(
                 [FromRoute] Guid id,
                 [FromForm] PropostaRequest request,
-                [FromServices] IRepository <Solicitacao> repoSolicitacao,
+                [FromServices] IRepository <PedidoLocacao> repoSolicitacao,
                 [FromServices] IRepository<Proposta> repoProposta
                 ) =>
             {
@@ -98,7 +98,7 @@ public static class PropostasEndpoints
     {
         builder.MapGet("{id:guid}/proposals", async (
             [FromRoute] Guid id,
-            [FromServices] IRepository<Solicitacao> repository) =>
+            [FromServices] IRepository<PedidoLocacao> repository) =>
         {
 
             var solicitacao = await repository
@@ -132,7 +132,7 @@ public static class PropostasEndpoints
                     p => p.Id);
             if (proposta is null) return Results.NotFound();
 
-            proposta.Status = StatusProposta.Aceita;
+            proposta.Situacao = SituacaoProposta.Aceita;
 
             // criar locação a partir da proposta aceita
             var locacao = new Locacao()
@@ -174,7 +174,7 @@ public static class PropostasEndpoints
                     p => p.Id);
             if (proposta is null) return Results.NotFound();
 
-            proposta.Status = StatusProposta.Recusada;
+            proposta.Situacao = SituacaoProposta.Recusada;
             await repository.UpdateAsync(proposta);
 
             return Results.Ok(PropostaResponse.From(proposta));

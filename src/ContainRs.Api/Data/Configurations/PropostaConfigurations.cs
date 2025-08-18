@@ -11,7 +11,7 @@ public class PropostaConfigurations : IEntityTypeConfiguration<Proposta>
         builder.Property(p => p.ValorTotal)
             .HasColumnType("decimal(18,2)");
 
-        builder.OwnsOne(p => p.Status, status =>
+        builder.OwnsOne(p => p.Situacao, status =>
         {
             status.Property(s => s.Status)
                 .HasColumnName("Status")

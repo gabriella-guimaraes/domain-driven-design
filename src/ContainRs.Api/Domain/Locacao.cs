@@ -20,6 +20,10 @@ public record StatusLocacao(string Status)
     }
 }
 
+/// <summary>
+/// Ato de disponibilizar um contêiner para uso do cliente por um período determinado, mediante pagamento de um valor acordado. Pode incluir serviços adicionais, como transporte e manutenção.
+/// </summary>
+
 public class Locacao
 {
     public Locacao() { }
