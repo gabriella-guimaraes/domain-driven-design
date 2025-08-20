@@ -1,4 +1,6 @@
-﻿namespace ContainRs.Api.Domain;
+﻿using ContainRs.Vendas.Propostas;
+
+namespace ContainRs.Vendas.Locacoes;
 
 public record StatusLocacao(string Status)
 {

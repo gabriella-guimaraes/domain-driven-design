@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contextos", "Contextos", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainRs.Api", "src\Apps\ContainRs.Api\ContainRs.Api.csproj", "{864A55A9-3E6D-8504-4595-903C968E45C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainRs.Vendas", "src\Contextos\ContainRs.Vendas\ContainRs.Vendas.csproj", "{EB43C051-6D81-4262-8AAC-257C9E42D7B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{864A55A9-3E6D-8504-4595-903C968E45C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{864A55A9-3E6D-8504-4595-903C968E45C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{864A55A9-3E6D-8504-4595-903C968E45C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB43C051-6D81-4262-8AAC-257C9E42D7B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB43C051-6D81-4262-8AAC-257C9E42D7B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB43C051-6D81-4262-8AAC-257C9E42D7B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB43C051-6D81-4262-8AAC-257C9E42D7B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {BB5080F2-2FC9-4936-ADFC-85CBC6E32928}
 		{2A6B21DB-9BC5-4097-9DFB-11E10106506C} = {BB5080F2-2FC9-4936-ADFC-85CBC6E32928}
 		{864A55A9-3E6D-8504-4595-903C968E45C0} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{EB43C051-6D81-4262-8AAC-257C9E42D7B4} = {2A6B21DB-9BC5-4097-9DFB-11E10106506C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DC479B39-0170-466F-A7C1-258D9F3761B2}

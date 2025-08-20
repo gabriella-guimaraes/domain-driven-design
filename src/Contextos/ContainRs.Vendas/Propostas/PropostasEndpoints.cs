@@ -4,7 +4,7 @@ using ContainRs.Api.Locacoes;
 using Microsoft.AspNetCore.Mvc;
 using System.Transactions;
 
-namespace ContainRs.Api.Propostas;
+namespace ContainRs.Vendas.Propostas;
 
 public static class PropostasEndpoints
 {
@@ -13,7 +13,7 @@ public static class PropostasEndpoints
     public static IEndpointRouteBuilder MapPropostasEndpoints(this IEndpointRouteBuilder builder)
     {
         var group = builder
-            .MapGroup(EndpointConstants.ROUTE_SOLICITACOES)
+            .MapGroup(EndpointConstants.ROUTE_PEDIDOS)
             .WithTags(EndpointConstants.TAG_LOCACAO)
             .WithOpenApi();
 
