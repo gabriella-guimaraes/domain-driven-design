@@ -1,6 +1,4 @@
-﻿using ContainRs.Domain.Models;
-
-namespace ContainRs.Vendas.Propostas;
+﻿namespace ContainRs.Vendas.Propostas;
 
 public record StatusPedido(string Status)
 {
