@@ -1,6 +1,4 @@
-﻿using ContainRs.Api.Contracts;
-using ContainRs.Api.Domain;
-using ContainRs.Api.Extensions;
+﻿using ContainRs.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContainRs.Vendas.Locacoes;

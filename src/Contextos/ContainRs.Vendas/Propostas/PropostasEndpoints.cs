@@ -1,6 +1,5 @@
-﻿using ContainRs.Api.Contracts;
-using ContainRs.Api.Domain;
-using ContainRs.Api.Locacoes;
+﻿using ContainRs.Contracts;
+using ContainRs.Vendas.Locacoes;
 using Microsoft.AspNetCore.Mvc;
 using System.Transactions;
 
