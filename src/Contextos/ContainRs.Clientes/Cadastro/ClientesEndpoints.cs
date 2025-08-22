@@ -1,6 +1,4 @@
 ﻿using ContainRs.Contracts;
-using ContainRs.Api.Identity;
-using ContainRs.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Transactions;
@@ -105,17 +103,17 @@ public static class ClientesEndpoints
         builder.MapDelete("{id}", async (
             [FromRoute] Guid id
             , [FromServices] IRepository<Cliente> repository
-            , [FromServices] UserManager<AppUser> userManager
+            , [FromServices] IAcessoManager userManager
             , CancellationToken cancellationToken) =>
         {
             var clienteExistente = await repository.GetFirstAsync(c => c.Id == id, c => c.Id);
             if (clienteExistente is null) return Results.NotFound();
 
-            var user = await userManager.FindByEmailAsync(clienteExistente.Email.Value);
+            //var user = await userManager.FindByEmailAsync(clienteExistente.Email.Value);
 
             using var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
 
-            if (user is not null) await userManager.DeleteAsync(user);
+            await userManager.RemoverClienteAsync(clienteExistente.Email.Value, cancellationToken);
             await repository.RemoveAsync(clienteExistente, cancellationToken);
 
             scope.Complete();
@@ -132,20 +130,21 @@ public static class ClientesEndpoints
             async (
                 [FromQuery] string email
                 , [FromServices] IRepository<Cliente> repository
-                , [FromServices] UserManager<AppUser> userManager) =>
+                , [FromServices] IAcessoManager userManager
+                , CancellationToken cancellationToken) =>
             {
                 var cliente = await repository
                     .GetFirstAsync(c => c.Email.Value.Equals(email), c => c.Id);
                 if (cliente is null) return Results.NotFound();
 
                 // verificar se já existe user associado ao email do cliente
-                var user = await userManager.FindByEmailAsync(cliente.Email.Value);
+                var acesso = await userManager.ClientePossuiAcesso(cliente.Email.Value, cancellationToken);
 
                 // se não houver user, retornar status Pendente
-                if (user is null) return Results.Ok(RegistrationStatusResponse.Pendente(cliente));
+                if (!acesso.HasValue) return Results.Ok(RegistrationStatusResponse.Pendente(cliente));
 
                 // se houver user e EmailConfirmed for false, retornar Em análise
-                if (!user.EmailConfirmed) return Results.Ok(RegistrationStatusResponse.Reprovado(cliente));
+                if (acesso.HasValue && !acesso.Value) return Results.Ok(RegistrationStatusResponse.Reprovado(cliente));
 
                 // se houver user e EmailConfirmed for true, retornar Aprovado
                 return Results.Ok(RegistrationStatusResponse.Aprovado(cliente));

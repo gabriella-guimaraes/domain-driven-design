@@ -1,5 +1,4 @@
-﻿using ContainRs.Domain.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ContainRs.Clientes.Cadastro;
 
