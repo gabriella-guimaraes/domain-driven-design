@@ -1,11 +1,11 @@
-﻿using ContainRs.Api.Contracts;
+﻿using ContainRs.Contracts;
 using ContainRs.Api.Identity;
 using ContainRs.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Transactions;
 
-namespace ContainRs.Api.Clientes;
+namespace ContainRs.Clientes.Cadastro;
 
 public static class ClientesEndpoints
 {

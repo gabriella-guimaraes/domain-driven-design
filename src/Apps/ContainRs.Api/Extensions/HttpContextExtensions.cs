@@ -1,5 +1,8 @@
 ﻿namespace ContainRs.Api.Extensions;
 
+/// <summary>
+/// Método de Extenção para o HttpContext
+/// </summary>
 public static class HttpContextExtensions
 {
     public static Guid? GetClienteId(this HttpContext context)
