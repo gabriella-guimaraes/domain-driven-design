@@ -1,5 +1,4 @@
-﻿using ContainRs.Api.Domain;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ContainRs.Api.Data.Configurations;

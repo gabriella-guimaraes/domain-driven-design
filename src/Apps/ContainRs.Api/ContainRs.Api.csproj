@@ -18,12 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\ContainRs.Contracts\ContainRs.Contracts.csproj" />
     <ProjectReference Include="..\..\Contextos\ContainRs.Clientes\ContainRs.Clientes.csproj" />
+    <ProjectReference Include="..\..\Contextos\ContainRs.Engenharia\ContainRs.Engenharia.csproj" />
     <ProjectReference Include="..\..\Contextos\ContainRs.Vendas\ContainRs.Vendas.csproj" />
   </ItemGroup>
 

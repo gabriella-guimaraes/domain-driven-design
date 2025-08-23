@@ -1,4 +1,4 @@
-﻿namespace ContainRs.Api.Domain;
+﻿namespace ContainRs.Engenharia.Containeres;
 
 /// <summary>
 /// ON - O contêiner está ligado e funcionando normalmente.
