@@ -1,5 +1,4 @@
-﻿using ContainRs.Domain.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ContainRs.Api.Data.Configurations;
@@ -12,7 +11,7 @@ public class ClienteConfigurations : IEntityTypeConfiguration<Cliente>
 
         builder
             .Property(c => c.Nome).IsRequired();
-        
+
         builder
             .OwnsOne(c => c.Email, cfg =>
             {

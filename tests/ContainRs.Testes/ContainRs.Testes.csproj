@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\ContainRs.Api\ContainRs.Api.csproj" />
+    <ProjectReference Include="..\..\src\Contextos\ContainRs.Clientes\ContainRs.Clientes.csproj" />
   </ItemGroup>
 
   <ItemGroup>

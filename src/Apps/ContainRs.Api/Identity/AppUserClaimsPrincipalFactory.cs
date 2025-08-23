@@ -1,6 +1,4 @@
-﻿using ContainRs.Api.Contracts;
-using ContainRs.Domain.Models;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using System.Security.Claims;
 
@@ -18,7 +16,7 @@ public class AppUserClaimsPrincipalFactory(
 
         var cliente = await repository
             .GetFirstAsync(
-            c => c.Email.Value.Equals(user.Email), 
+            c => c.Email.Value.Equals(user.Email),
             c => c.Id);
 
         if (cliente is not null)

@@ -1,13 +1,8 @@
-using ContainRs.Api.Clientes;
 using ContainRs.Api.Containeres;
-using ContainRs.Api.Contracts;
 using ContainRs.Api.Data;
 using ContainRs.Api.Data.Repositories;
 using ContainRs.Api.Domain;
 using ContainRs.Api.Identity;
-using ContainRs.Api.Locacoes;
-using ContainRs.Api.Propostas;
-using ContainRs.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -33,6 +28,8 @@ builder.Services.AddScoped<IRepository<PedidoLocacao>, SolicitacaoRepository>();
 builder.Services.AddScoped<IRepository<Proposta>, PropostaRepository>();
 builder.Services.AddScoped<IRepository<Locacao>, LocacaoRepository>();
 builder.Services.AddScoped<IRepository<Conteiner>, ConteinerRepository>();
+
+builder.Services.AddScoped<IAcessoManager, AcessoManagerWithIdentity>();
 
 builder.Services
     .AddIdentityApiEndpoints<AppUser>(options => options.SignIn.RequireConfirmedEmail = true)

@@ -1,10 +1,9 @@
-﻿using ContainRs.Api.Contracts;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace ContainRs.Api.Data.Repositories;
 
-public abstract class BaseRepository<T>(AppDbContext dbContext) 
+public abstract class BaseRepository<T>(AppDbContext dbContext)
     : IRepository<T> where T : class
 {
     public virtual async Task<T> AddAsync(T obj, CancellationToken cancellationToken = default)
