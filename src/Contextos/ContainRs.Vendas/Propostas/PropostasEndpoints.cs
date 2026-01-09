@@ -172,27 +172,39 @@ public static class PropostasEndpoints
             [FromRoute] Guid propostaId,
             [FromBody] ComentarioRequest request,
             HttpContext context,
-            [FromServices] IRepository<Proposta> repository) =>
+            [FromServices] IPropostaService service) =>
         {
 
-            var proposta = await repository
-                .GetFirstAsync(
-                    p => p.Id == propostaId && p.SolicitacaoId == id,
-                    p => p.Id);
-            if (proposta is null) return Results.NotFound();
+            //var proposta = await repository
+            //    .GetFirstAsync(
+            //        p => p.Id == propostaId && p.SolicitacaoId == id,
+            //        p => p.Id);
+            //if (proposta is null) return Results.NotFound();
 
-            string? quem = context.User.Identity?.Name;
-            if (quem is null) return Results.Unauthorized();
+            //string? quem = context.User.Identity?.Name;
+            //if (quem is null) return Results.Unauthorized();
 
-            proposta.AddComentario(new Comentario()
-            {
-                Id = Guid.NewGuid(),
-                Data = DateTime.Now,
-                Usuario = quem,
-                Texto = request.Comentario
-            });
+            //proposta.AddComentario(new Comentario()
+            //{
+            //    Id = Guid.NewGuid(),
+            //    Data = DateTime.Now,
+            //    Usuario = quem,
+            //    Texto = request.Comentario
+            //});
 
-            await repository.UpdateAsync(proposta);
+            //await repository.UpdateAsync(proposta);
+            var pessoa = context.User.Identity?.Name;
+            if(pessoa is null) return Results.Unauthorized();
+
+            var comando = new ComentarProposta
+            (
+                id,
+                propostaId,
+                request.Comentario,
+                pessoa
+            );
+
+            var proposta = await service.ComentarAsync(comando);
 
             return Results.Ok(PropostaResponse.From(proposta));
         })
