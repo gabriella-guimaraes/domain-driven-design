@@ -1,5 +1,6 @@
 ﻿using ContainRs.Contracts;
 using ContainRs.Vendas.Locacoes;
+using System;
 using System.Transactions;
 
 namespace ContainRs.Vendas.Propostas
@@ -7,6 +8,7 @@ namespace ContainRs.Vendas.Propostas
     public interface IPropostaService
     {
         Task<Proposta?> AprovarAsync(ApovarProposta comando);
+        Task<Proposta?> ComentarAsync(ComentarProposta comando);
     }
 
     public class PropostaService : IPropostaService
@@ -45,6 +47,26 @@ namespace ContainRs.Vendas.Propostas
             await repoLocacao.AddAsync(locacao);
 
             scope.Complete();
+            return proposta;
+        }
+
+        public async Task<Proposta?> ComentarAsync(ComentarProposta comando)
+        {
+            var proposta = await repoProposta
+                .GetFirstAsync(
+                    p => p.Id == comando.IdProposta && p.SolicitacaoId == comando.IdPedido,
+                    p => p.Id);
+            if (proposta is null) return null;
+
+            proposta.AddComentario(new Comentario()
+            {
+                Id = Guid.NewGuid(),
+                Data = DateTime.Now,
+                Usuario = comando.Pessoa,
+                Texto = comando.Mensagem
+            });
+
+            await repoProposta.UpdateAsync(proposta);
             return proposta;
         }
     }

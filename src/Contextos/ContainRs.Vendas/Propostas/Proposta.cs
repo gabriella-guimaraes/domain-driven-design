@@ -43,7 +43,9 @@ public class Proposta
 
     public Comentario AddComentario(Comentario comentario)
     {
-        Comentarios.Add(comentario);
+        if(Situacao == SituacaoProposta.Enviada)
+            Comentarios.Add(comentario);
+
         return comentario;
     }
 
