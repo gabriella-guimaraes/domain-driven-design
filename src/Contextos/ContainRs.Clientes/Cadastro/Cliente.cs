@@ -33,7 +33,8 @@ public class Cliente
 
     public void RemoveEndereco(Endereco endereco)
     {
-        Enderecos.Remove(endereco);
+        if(Enderecos.Count > 1)
+            Enderecos.Remove(endereco);
     }
 
     public Endereco AddEndereco(string cep, string rua, string? numero, string? complemento, string? bairro, string municipio, UnidadeFederativa? estado)
