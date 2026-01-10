@@ -30,23 +30,25 @@ namespace ContainRs.Vendas.Propostas
                     p => p.Id);
             if (proposta is null) return null;
 
-            proposta.Situacao = SituacaoProposta.Aceita;
-
-            // criar locação a partir da proposta aceita
-            var locacao = new Locacao()
+            if (proposta.Aprovar())
             {
-                PropostaId = proposta.Id,
-                DataInicio = DateTime.Now,
-                DataPrevistaEntrega = proposta.Solicitacao.DataInicioOperacao.AddDays(-proposta.Solicitacao.DisponibilidadePrevia),
-                DataTermino = proposta.Solicitacao.DataInicioOperacao.AddDays(proposta.Solicitacao.DuracaoPrevistaLocacao)
-            };
+                // criar locação a partir da proposta aceita
+                var locacao = new Locacao()
+                {
+                    PropostaId = proposta.Id,
+                    DataInicio = DateTime.Now,
+                    DataPrevistaEntrega = proposta.Solicitacao.DataInicioOperacao.AddDays(-proposta.Solicitacao.DisponibilidadePrevia),
+                    DataTermino = proposta.Solicitacao.DataInicioOperacao.AddDays(proposta.Solicitacao.DuracaoPrevistaLocacao)
+                };
 
-            using var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
+                using var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
 
-            await repoProposta.UpdateAsync(proposta);
-            await repoLocacao.AddAsync(locacao);
+                await repoProposta.UpdateAsync(proposta);
+                await repoLocacao.AddAsync(locacao);
 
-            scope.Complete();
+                scope.Complete();
+            }
+
             return proposta;
         }
 
